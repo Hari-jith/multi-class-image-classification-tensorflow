@@ -1,95 +1,145 @@
 # 🐾 Multi-Class Image Classification using TensorFlow
 
-A complete deep learning project demonstrating **multi-class image classification** using TensorFlow and Keras. This repository is designed for beginners and students learning computer vision and covers the entire workflow from building a Convolutional Neural Network (CNN) from scratch to applying Transfer Learning using MobileNetV2.
+A comprehensive deep learning project demonstrating **multi-class image classification** using TensorFlow and Keras. This repository covers the complete workflow of building image classification models—from a **Convolutional Neural Network (CNN) from scratch** to **Transfer Learning using MobileNetV2**—using the **Animals-10** dataset.
 
-The project uses the **Animals-10** dataset from Kaggle and includes model evaluation, visualization, confusion matrix, prediction with confidence scores, and techniques to reduce overfitting.
-
----
-
-## 📌 Features
-
-- Build a CNN from scratch
-- Train and evaluate a custom CNN
-- Visualize training and validation performance
-- Understand overfitting
-- Apply Data Augmentation
-- Use Early Stopping and ReduceLROnPlateau callbacks
-- Implement Transfer Learning with MobileNetV2
-- Generate Confusion Matrix
-- Generate Classification Report
-- Predict random images with confidence scores
-- Beginner-friendly code with detailed comments and markdown explanations
+The project is designed for **students, beginners, and educators** to understand CNNs, overfitting, regularization techniques, data augmentation, callbacks, transfer learning, and model evaluation.
 
 ---
 
-## 📂 Dataset
+# 📌 Project Objectives
 
-Dataset used:
-
-**Animals-10**
-
-https://www.kaggle.com/datasets/alessiocorrado99/animals10
-
-The dataset contains images belonging to the following classes:
-
-- Dog
-- Horse
-- Elephant
-- Butterfly
-- Chicken
-- Cat
-- Cow
-- Sheep
-- Spider
-- Squirrel
+- Build a CNN from scratch for multi-class image classification.
+- Analyze overfitting using training and validation curves.
+- Improve model generalization using Data Augmentation and Callbacks.
+- Compare custom CNNs with a pretrained MobileNetV2 model.
+- Evaluate models using Confusion Matrix and Classification Report.
+- Predict random validation images with confidence scores.
 
 ---
 
-## 🧠 Models Implemented
+# 📂 Dataset
 
-### 1. Custom CNN
+**Dataset:** Animals-10
 
-A Convolutional Neural Network built from scratch using:
+**Source:** https://www.kaggle.com/datasets/alessiocorrado99/animals10
 
-- Conv2D
-- MaxPooling2D
+The dataset contains approximately **28,000+ images** across **10 animal classes**.
+
+### Classes
+
+- 🐶 Dog
+- 🐴 Horse
+- 🐘 Elephant
+- 🦋 Butterfly
+- 🐔 Chicken
+- 🐱 Cat
+- 🐄 Cow
+- 🐑 Sheep
+- 🕷 Spider
+- 🐿 Squirrel
+
+---
+
+# 🧠 Models Implemented
+
+## 1. Custom CNN
+
+A CNN built completely from scratch using:
+
+- Convolution Layers
+- MaxPooling
 - Dense Layers
 - Dropout
-- ReLU Activation
 
-This model demonstrates how CNNs learn image features from scratch and highlights the issue of overfitting.
+This model demonstrates how CNNs learn features directly from the dataset and highlights the problem of **overfitting**.
 
 ---
 
-### 2. Improved CNN
+## 2. Improved CNN
 
-The custom CNN is enhanced using:
+The custom CNN is improved by incorporating:
 
 - Data Augmentation
-- Dropout
 - Early Stopping
 - ReduceLROnPlateau
+- Dropout Regularization
 
-These techniques improve the model's ability to generalize to unseen data.
+The goal is to improve generalization and reduce overfitting.
 
 ---
 
-### 3. Transfer Learning (MobileNetV2)
+## 3. MobileNetV2 (Transfer Learning)
 
 A pretrained MobileNetV2 model is used as a feature extractor.
 
 Advantages include:
 
-- Faster training
+- Faster convergence
+- Better feature extraction
 - Higher validation accuracy
-- Better generalization
 - Reduced overfitting
+- Excellent generalization
 
 ---
 
-## 📊 Evaluation Metrics
+## 4. Strong CNN
 
-The project evaluates each model using:
+A deeper CNN architecture consisting of:
+
+- Multiple Convolution Blocks
+- Batch Normalization
+- Global Average Pooling
+- Dropout
+- Dense Layers
+
+This model was implemented to explore whether a deeper CNN trained from scratch could outperform a pretrained model.
+
+---
+
+# 📊 Model Performance
+
+| Model | Training Accuracy | Validation Accuracy | Validation Loss | Observation |
+|--------|------------------:|--------------------:|----------------:|-------------|
+| **Custom CNN** | **93.16%** | **66.61%** | **1.7305** | Severe Overfitting |
+| **Improved CNN** | **70.12%** | **66.30%** | **1.0008** | Better Generalization |
+| **Strong CNN** | **70.79%** | **63.72%** | **1.1208** | Underperformed on this dataset |
+| **MobileNetV2** | **83.28%** | **91.86%** | **0.2608** | Best Overall Performance |
+
+---
+
+# 📈 Key Observations
+
+### Custom CNN
+
+- Achieved high training accuracy.
+- Large gap between training and validation accuracy.
+- Clearly demonstrates **overfitting**.
+
+---
+
+### Improved CNN
+
+- Reduced overfitting using Data Augmentation and Callbacks.
+- Validation loss improved significantly.
+- More stable training compared to the baseline CNN.
+
+---
+
+### Strong CNN
+
+Although architecturally deeper, the Strong CNN did not outperform the simpler models. This demonstrates that **a more complex architecture does not necessarily guarantee better performance**, especially when training from scratch on a limited dataset.
+
+---
+
+### MobileNetV2
+
+The pretrained MobileNetV2 model achieved the highest validation accuracy and lowest validation loss. This highlights the effectiveness of **Transfer Learning**, where previously learned visual features from ImageNet are reused for a new classification task.
+
+---
+
+# 📊 Evaluation Metrics
+
+Each model is evaluated using:
 
 - Training Accuracy
 - Validation Accuracy
@@ -97,33 +147,20 @@ The project evaluates each model using:
 - Validation Loss
 - Confusion Matrix
 - Classification Report
-- Random Image Predictions
-- Prediction Confidence Scores
+- Random Image Prediction
+- Prediction Confidence Score
 
 ---
 
-## 🛠 Technologies Used
+# 📁 Project Structure
 
-- Python
-- TensorFlow
-- Keras
-- NumPy
-- Matplotlib
-- Scikit-learn
-- Google Colab / Kaggle Notebook
-
----
-
-## 📁 Project Structure
-
-```
-├── notebooks/
-│   └── image_classification.ipynb
+```text
+├── multi_class_classification_cnn.ipynb
 │
 ├── Results/
 │   ├── Custom_CNN/
 │   ├── Improved_CNN/
-│   └── MobileNet/
+│   ├── MobileNet/
 │   └── Strong_CNN/
 │
 ├── README.md
@@ -132,21 +169,21 @@ The project evaluates each model using:
 
 ---
 
-## 🚀 Installation
+# 🚀 Installation
 
 Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/multi-class-image-classification-tensorflow.git
+git clone https://github.com/Hari-jith/multi-class-image-classification-tensorflow.git
 ```
 
-Move into the project directory
+Navigate to the project directory
 
 ```bash
 cd multi-class-image-classification-tensorflow
 ```
 
-Install the required packages
+Install the dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -154,9 +191,7 @@ pip install -r requirements.txt
 
 ---
 
-## 📥 Download the Dataset
-
-Using the Kaggle API
+# 📥 Download the Dataset
 
 ```python
 import os
@@ -176,40 +211,52 @@ DATASET = "/content/dataset/raw-img"
 
 ---
 
-## 📈 Sample Results
+# 📈 Results
 
-The project demonstrates:
+The repository includes the outputs generated for every model, including:
 
-- CNN from scratch
-- Improved CNN using regularization techniques
-- MobileNetV2 Transfer Learning
-
-Example outputs include:
-
-- Accuracy/Loss Curves
+- Training & Validation Accuracy Curves
+- Training & Validation Loss Curves
 - Confusion Matrix
 - Classification Report
-- Random Image Predictions with Confidence Scores
+- Random Predictions with Confidence Scores
+
+The result images are organized under the **Results** directory for easy comparison.
 
 ---
 
-## 🎯 Learning Outcomes
+# 🎯 Learning Outcomes
 
-By completing this project, you will understand:
+This project helps learners understand:
 
 - Image preprocessing
 - Multi-class image classification
-- Building CNNs from scratch
-- Overfitting and regularization
+- CNN architecture
+- Feature extraction using convolution
+- Overfitting
 - Data Augmentation
-- Callbacks in TensorFlow
+- Early Stopping
+- Learning Rate Scheduling
 - Transfer Learning
-- Model evaluation techniques
-- Prediction and confidence estimation
+- Model Evaluation
+- Prediction with Confidence Scores
 
 ---
 
-## 📚 Requirements
+# 🛠 Technologies Used
+
+- Python
+- TensorFlow
+- Keras
+- NumPy
+- Matplotlib
+- Scikit-learn
+- Google Colab
+- Kaggle
+
+---
+
+# 📦 Requirements
 
 - Python 3.10+
 - TensorFlow
@@ -217,7 +264,7 @@ By completing this project, you will understand:
 - Matplotlib
 - Scikit-learn
 
-Install all dependencies using:
+Install using:
 
 ```bash
 pip install -r requirements.txt
@@ -225,9 +272,21 @@ pip install -r requirements.txt
 
 ---
 
-## ⭐ Acknowledgements
+# 🙏 Acknowledgements
 
-- TensorFlow
-- Keras
+- TensorFlow & Keras
 - Kaggle
 - Animals-10 Dataset by Alessio Corrado
+- Google Colab
+
+---
+
+# 📜 License
+
+This project is released for **educational and learning purposes**.
+
+Feel free to fork the repository, modify the code, and use it for academic or personal learning projects.
+
+---
+
+## ⭐ If you found this project useful, consider giving the repository a star!
